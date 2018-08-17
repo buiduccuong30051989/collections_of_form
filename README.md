@@ -1,2 +1,5 @@
-# collections_of_form
-collections_of_form
+# Front-End-Kit
+A simple Front End Task runner kit
+# bower install
+# npm install
+# gulp dev
