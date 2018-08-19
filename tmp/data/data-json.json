@@ -2,12 +2,36 @@
 	"pageList": {
 		"data": [
 			{
-				"title": "Style Guides",
-				"url": "styleguides"
+				"title": "List Pages",
+				"url": "index"
 			},
 			{
-				"title": "P000 welcome",
-				"url": "p000-welcome"
+				"title": "A_Register_Form_01",
+				"url": "A_Register_Form_01"
+			},
+			{
+				"title": "A_Register_Form_02",
+				"url": "A_Register_Form_02"
+			},
+			{
+				"title": "A_Register_Form_03",
+				"url": "A_Register_Form_03"
+			},
+			{
+				"title": "A_Register_Form_04",
+				"url": "A_Register_Form_04"
+			},
+			{
+				"title": "A_Register_Form_05",
+				"url": "A_Register_Form_05"
+			},
+			{
+				"title": "A_Register_Form_06",
+				"url": "A_Register_Form_06"
+			},
+			{
+				"title": "A_Register_Form_07",
+				"url": "A_Register_Form_07"
 			}
 		]
 	}
