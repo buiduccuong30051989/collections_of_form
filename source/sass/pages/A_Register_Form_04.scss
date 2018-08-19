@@ -1,0 +1,152 @@
+@charset 'UTF-8';
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+@import '../abstracts/functions';
+@import '../abstracts/placeholders';
+@import '../abstracts/animations';
+
+@import '../base/typography';
+@import '../base/images';
+@import '../base/global';
+@import '../base/reset';
+@import '../base/utility-classes';
+
+$mainc: #57b846;
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+    transform: scale(0);
+    opacity: 0;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.arf04 {
+  
+  // @media screen and (max-width: 1280px) {
+  //   .inner {
+  //     header {
+  //       min-height: 160px;
+  //     }
+
+  //     form {
+  //       padding: 30px;
+
+  //       legend {
+  //         margin-bottom: 40px;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // @media screen and (max-width: 767px) {
+  //   padding: 15px;
+
+  //   .inner {
+  //     header {
+  //       min-height: 160px;
+  //     }
+
+  //     form {
+  //       padding: 30px;
+
+  //       legend {
+  //         margin-bottom: 40px;
+  //       }
+
+  //       .row {
+  //         &.two-line {
+  //           display: flex;
+  //           justify-content: space-between;
+    
+  //           .input-field {
+  //             width: 100%;
+  //             max-width: calc(50% - 10px);
+  //           }
+  //         }
+  //       }
+
+  //       .input-field {
+  //         input {
+  //           &.datepicker {
+  //             padding-right: 0;
+  //           }
+  //         }
+  
+  //         &.date {
+  //           svg {
+  //             display: none;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // @media screen and (max-width: 767px) {
+  //   padding: 15px;
+
+  //   .inner {
+  //     header {
+  //       min-height: 90px;
+  //     }
+
+  //     form {
+  //       legend {
+  //         margin-bottom: 30px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+

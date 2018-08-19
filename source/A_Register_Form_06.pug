@@ -1,0 +1,41 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
+  link(href="css/A_Register_Form_04.css" rel="stylesheet")
+
+block content
+  .arf04
+    .inner
+      header
+      form
+        fieldset
+          legend Apply for job
+          .inner
+            .row
+              .label-field
+                label Full name
+              .input-field
+                input(type='text')
+            .row
+              .label-field
+                label Email address
+              .input-field
+                .input
+                  input(type='email', placeholder='example@email.com')
+            .row
+              .label-field
+                label Message
+              .input-field
+                  .input
+                    textarea(placeholder='Message sent to the emplyer')
+            .row
+              .label-field
+                label Upload CV
+              .input-field
+                .input
+                  input(type='file')
+            .row
+              button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text Button
+  script.
+    

@@ -1,0 +1,58 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
+  link(href="css/A_Register_Form_04.css" rel="stylesheet")
+
+block content
+  .arf04
+    .inner
+      header
+      form
+        fieldset
+          legend Registration Form
+          .row.two-col
+            .input-field
+              label First Name
+              .input
+                input(type='text')
+            .input-field
+              label Last Name
+              .input
+                input(type='text')
+          .row.two-col
+            .input-field
+              label Birthday
+              .input
+                input(type='text')
+                svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24")
+                  path(d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z")
+            .input-field
+              label Gender
+              .inputs-radio
+                .input-radio
+                  input#male(type='radio', name='gender', value='Male')
+                  label(for='male') Male
+                .input-radio
+                  input#female(type='radio', name='gender', value='Female')
+                  label(for='female') Female
+          .row.two-col
+            .input-field
+              label Email
+                .input
+                  input(type='mail')
+            .input-field
+              label Phone Number
+                .input
+                  input(type='text')
+          .row
+            .input-field
+              label Subject
+              .input
+                select
+                  option Choose option
+                  option 2
+          .row
+            button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text Button
+  script.
+    
