@@ -1,8 +1,9 @@
 extends modules/layout/layout.pug
 include modules/_page-list/_page-list
 block head
+  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
   link(href="css/A_Register_Form_01.css" rel="stylesheet")
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js')
+  script(src='js/extention/custom-materialize.js')
 
 block content
   .arf01
@@ -10,36 +11,41 @@ block content
       header
       form
         fieldset
-          legend Register Form
+          legend Registration Info
           .row
-            .input-field.col.s12
-              input#name.validate(type='text')
+            .input-field
+              input#name(type='text')
               label(for='name') NAME
-          .row
-            .input-field.col.s6
-              input#birthdate.validate(type='text')
+          .row.two-line
+            .input-field.date
+              input#birthdate.datepicker(type='text')
+              svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24")
+                path(d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z")
               label(for='birthdate') BIRTHDATE
-            .input-field.col.s6
-              select
-                option(value='', disabled='', selected='') Choose your option
-                option(value='1') Option 1
-                option(value='2') Option 2
-                option(value='3') Option 3
-              label GENDER
+            .input-field
+              select(data-placeholder='GENDER')
+                option(value='', disabled='', selected='', data-disabled="true")
+                option(value='1', data-disabled="false") MALE
+                option(value='2' data-disabled="false") FEMALE
           .row
-            .input-field.col.s12
-              input#class.validate(type='text')
-              label(for='class') CLASS
+            .input-field
+              select(data-placeholder='CLASS')
+                option(value='', disabled='', selected='', data-disabled="true")
+                option(value='1', data-disabled="false") CLASS A
+                option(value='2' data-disabled="false") CLASS B
           .row
-            .input-field.col.s6
-              input#code.validate(type='text')
+            .input-field
+              input#code(type='text')
               label(for='code') REGISTRATION CODE
           .row
-            .col.s12
-              button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.teal.white-text Button
+            button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text Button
   script.
     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems);
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {classes: 'custom'});
     });
-    //- M.updateTextFields();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems);
+    });

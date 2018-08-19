@@ -187,30 +187,8 @@ gulp.task('cleanup', function(cb) {
   return del(options.del, cb);
 });
 
-// SCSSlint
-gulp.task('scss-lint', function() {
-  return gulp.src([
-    source + '/sass/**/*.scss',
-    '!'+ source +'/sass/vendors/_*.scss',
-    '!'+ source +'/sass/extention/**/*.scss'
-  ])
-  .pipe($.cached('scsslint'))
-  .pipe($.scssLint({
-    // 'config': '.scss-lint.yml'
-  }));
-});
-
-// JShint
-gulp.task('jshint', function() {
-  return gulp.src([
-    '*.js'
-    ], {cwd: 'source/js'})
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'));
-});
-
 // = Build Style
-gulp.task('compile-styles',['fonts', 'scss-lint'], function(cb) {
+gulp.task('compile-styles',['fonts'], function(cb) {
   return gulp.src([
     source + '/sass/*.scss',
     source + '/sass/pages/*.scss',
@@ -273,8 +251,8 @@ gulp.task('build-html', function(cb) {
 });
 
 // = Build JS
-gulp.task('compile-js', ['jshint'], function() {
-  return gulp.src(["*.js", "!_*.js"], {cwd: 'source/js'})
+gulp.task('compile-js', function() {
+  return gulp.src(["*.js", "!_*.js"], {cwd: 'source/js/**'})
   .pipe($.include(options.include))
   .pipe(header(banner, {pkg: pkg}))
   .pipe(gulp.dest(dest + '/js'));
