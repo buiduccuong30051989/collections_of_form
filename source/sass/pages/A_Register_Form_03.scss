@@ -4,7 +4,6 @@
 @import 'materialize-css/sass/components/normalize';
 @import 'materialize-css/sass/components/global';
 @import 'materialize-css/sass/components/forms/forms';
-@import 'materialize-css/sass/components/buttons';
 @import 'materialize-css/sass/components/waves';
 @import 'materialize-css/sass/components/dropdown';
 @import 'materialize-css/sass/components/datepicker';
@@ -27,38 +26,38 @@ $mainc: #57b846;
   display: none;
 }
 .arf03 {
-  background: #fa4251 ;
+  background-image: linear-gradient(#a18cd1, #fbc2eb);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
 
   .inner {
     width: 100%;
-    max-width: 960px;
-    height: 580px;
-    background: #fff;
+    max-width: 780px;
+    min-height: 580px;
+    background: #000;
     border-radius: 10px;
-    box-shadow: 8px 0 20px rgba(0,0,0,.15);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); 
     overflow: hidden;
     display: flex;
 
     header {
-      min-width: 280px;
-      background: url('../images/A_Register_Form_02.png');
+      min-width: 390px;
+      background: url('../images/A_Register_Form_03.png');
       background-size: cover;
       background-position: center center;
     }
 
     form {
-      padding: 85px 89px 85px 89px;
+      padding: 65px;
       flex-grow: 1;
 
       legend {
         font-size: 30px;
         line-height: 1;
-        color: #333333;
+        color: #fff;
         font-weight: 400;
         margin-bottom: 54px;
       }
@@ -80,11 +79,20 @@ $mainc: #57b846;
         margin-top: 0;
         width: 100%;
 
+        label.active {
+          color: #fff;
+        }
+
         input {
           font-size: 14px;
           height: 2rem;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid rgba($color: #fff, $alpha: .2);
           cursor: pointer;
+          color: #ccc;
+          &:focus {
+            border-bottom-color: #fff;
+            box-shadow: 0 1px 0 0 #fff;
+          }
 
           &.datepicker {
             padding-right: 10px;
@@ -94,7 +102,7 @@ $mainc: #57b846;
         > label {
           font-size: 14px;
           line-height: 1;
-          color: #555;
+          color: #ccc;
           left: 0;
           transform: translateY(4px);
 
@@ -108,8 +116,8 @@ $mainc: #57b846;
           svg {
             position: absolute;
             width: 16px;
-            bottom: 14px;
-            right: 5px;
+            bottom: 18px;
+            right: 0;
             fill: #ccc;
           }
         }
@@ -117,15 +125,16 @@ $mainc: #57b846;
 
       .btn {
         background: $mainc;
-        min-width: 100px;
+        min-width: 130px;
         height: 40px;
         white-space: nowrap;
-        border-radius: 3px;
+        border-radius: 20px;
         font-weight: bold;
         font-size: 14px;
         margin-top: 18px;
         color: #fff;
         transition: all .2s ease-out, color .2s ease-out;
+        border: 0;
 
         &:hover {
           background: darken($mainc, 5%);
@@ -136,20 +145,19 @@ $mainc: #57b846;
 
   .select-wrapper.custom {
     .caret {
-      bottom: 5px;
+      bottom: 15px;
       width: 20px;
       fill: #ccc;
-      right: 5px;;
+      right: 0;
     }
 
     .fake-label {
       display: block;
-      color: #9e9e9e;
+      color: #ccc;
       position: absolute;
       top: 0;
       font-size: 14px;
       line-height: 1;
-      color: #555;
       left: 0;
       transition: transform .2s ease-out, color .2s ease-out;
       transform-origin: 0% 100%;
@@ -168,6 +176,7 @@ $mainc: #57b846;
     .select-dropdown[data-disabled="false"] {
       & ~ .fake-label {
         transform: translateY(-12px) scale(0.8);
+        color: #fff;
       }
     }
 
@@ -183,81 +192,54 @@ $mainc: #57b846;
     }
   }
 
-  // @media screen and (max-width: 1280px) {
-  //   .inner {
-  //     header {
-  //       min-height: 160px;
-  //     }
+  .datepicker-calendar-container .btn-flat {
+    border: 0;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+  }
 
-  //     form {
-  //       padding: 30px;
+  @media screen and (max-width: 1280px) {
+    padding: 15px;
 
-  //       legend {
-  //         margin-bottom: 40px;
-  //       }
-  //     }
-  //   }
-  // }
+    .inner {
+      form {
+        padding: 30px;
 
-  // @media screen and (max-width: 767px) {
-  //   padding: 15px;
+        legend {
+          margin-bottom: 40px;
+        }
 
-  //   .inner {
-  //     header {
-  //       min-height: 160px;
-  //     }
+        .input-field {
+          &.date {
+            svg {
+              bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 
-  //     form {
-  //       padding: 30px;
+  @media screen and (max-width: 992px) {
+    .inner {
+      header {
+        min-width: 290px;
+      }
+    }
+  }
 
-  //       legend {
-  //         margin-bottom: 40px;
-  //       }
+  @media screen and (max-width: 767px) {
+    .inner {
+      flex-direction: column;
 
-  //       .row {
-  //         &.two-line {
-  //           display: flex;
-  //           justify-content: space-between;
-    
-  //           .input-field {
-  //             width: 100%;
-  //             max-width: calc(50% - 10px);
-  //           }
-  //         }
-  //       }
-
-  //       .input-field {
-  //         input {
-  //           &.datepicker {
-  //             padding-right: 0;
-  //           }
-  //         }
-  
-  //         &.date {
-  //           svg {
-  //             display: none;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  // @media screen and (max-width: 767px) {
-  //   padding: 15px;
-
-  //   .inner {
-  //     header {
-  //       min-height: 90px;
-  //     }
-
-  //     form {
-  //       legend {
-  //         margin-bottom: 30px;
-  //       }
-  //     }
-  //   }
-  // }
+      header {
+        width: 100%;
+        min-height: 210px;
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
 
 

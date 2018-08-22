@@ -15,23 +15,23 @@ block content
             .input-field
               label First Name
               .input
-                input(type='text')
+                input(type='text', placeholder='John')
             .input-field
               label Last Name
               .input
-                input(type='text')
+                input(type='text', placeholder='Doe')
           .row.two-col
             .input-field
               label Birthday
-              .input
+              .input.date
                 input(type='text')
                 svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24")
                   path(d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z")
             .input-field
               label Gender
-              .inputs-radio
+              .input-radio-group
                 .input-radio
-                  input#male(type='radio', name='gender', value='Male')
+                  input#male(type='radio', name='gender', value='Male', checked)
                   label(for='male') Male
                 .input-radio
                   input#female(type='radio', name='gender', value='Female')
@@ -39,20 +39,26 @@ block content
           .row.two-col
             .input-field
               label Email
-                .input
-                  input(type='mail')
+              .input
+                input(type='mail')
             .input-field
               label Phone Number
-                .input
-                  input(type='text')
+              .input
+                input(type='text')
           .row
             .input-field
               label Subject
-              .input
-                select
-                  option Choose option
-                  option 2
-          .row
-            button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text Button
+              .input-select
+                select(data-trigger='', name='choices-single-defaul')
+                  option(placeholder='') Choose option
+                  option Subject A
+                  option Subject B
+                  option Subject C
+          .row.m-b-0
+            button(type='button').btn.waves-effect.waves-light Submit
+  script(src='js/extention/choices.js')
   script.
+    const choices = new Choices('[data-trigger]', {
+      searchEnabled: false
+    });
     
