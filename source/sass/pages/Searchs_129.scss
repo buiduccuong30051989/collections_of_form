@@ -1,0 +1,123 @@
+@charset 'UTF-8';
+
+@import 'materialize-css/sass/components/normalize';
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+@import '../abstracts/functions';
+@import '../abstracts/placeholders';
+@import '../abstracts/animations';
+
+@import '../base/typography';
+@import '../base/images';
+@import '../base/global';
+@import '../base/reset';
+@import '../base/utility-classes';
+@import '../extention/choices';
+
+$mainc: #4272d7;
+
+* {
+  box-sizing: border-box;
+}
+
+.s129 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background: url('../images/Searchs_129.png');
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+
+  form {
+    width: 100%;
+    max-width: 390px;
+
+    .inner-form {
+      width: 100%;
+
+      .input-field {
+        height: 80px;
+        width: 100%;
+        position: relative;
+
+        input {
+          height: 100%;
+          width: 100%;
+          background: transparent;
+          border: 0;
+          border-bottom: 2px solid rgba($color: #fff, $alpha: .5);
+          display: block;
+          width: 100%;
+          padding: 10px 32px 10px 70px;
+          font-size: 18px;
+          color: #fff;
+          transition: all .2s ease-out, color .2s ease-out;
+
+          @include placeholder {
+            color: #fff;
+            font-size: 18px;
+          }
+
+          &:hover,
+          &:focus {
+            box-shadow: none;
+            outline: 0;
+            border-bottom-color: #fff;
+          }
+        }
+
+        .btn-search {
+          width: 70px;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          left: 0;
+          height: 100%;
+          background: transparent;
+          border: 0;
+          padding: 0;
+          cursor: pointer;
+
+          svg {
+            fill: #fff;
+            width: 50px;
+            height: 50px;
+          }
+
+          &:hover,
+          &:focus {
+            outline: 0;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    form {
+      .inner-form {
+        .input-field {
+          margin-bottom: 20px;
+          height: 50px;
+
+          input {
+            padding-left: 45px;
+            font-size: 16px;
+          }
+
+          .btn-search {
+            svg {
+              width: 36px;
+              height: 36px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
+  link(href="css/Searchs_001.css" rel="stylesheet")
+
+block content
+  .s01
+    form
+      fieldset
+        legend Discover the Amazing City
+      .inner-form
+        .input-field.first-wrap
+          input#search(type='text', placeholder='What are you looking for?')
+        .input-field.second-wrap
+          input#location(type='text', placeholder='location')   
+        .input-field.third-wrap
+          button(type='button').btn-search Search
+  

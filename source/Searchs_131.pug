@@ -1,0 +1,26 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
+  link(href="css/Searchs_131.css" rel="stylesheet")
+
+block content
+  .s131
+    form
+      .inner-form
+        .input-field.first-wrap
+          input#search(type='text', placeholder='What are you looking for?')
+        .input-field.second-wrap
+          .input-select
+            select(data-trigger='', name='choices-single-defaul')
+              option(placeholder='') CATEGORY
+              option Subject A
+              option Subject B
+              option Subject C
+        .input-field.third-wrap
+          button(type='button').btn-search SEARCH
+  script(src='js/extention/choices.js')
+  script.
+    const choices = new Choices('[data-trigger]', {
+      searchEnabled: false
+    });
