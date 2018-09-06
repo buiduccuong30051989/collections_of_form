@@ -1,68 +1,72 @@
 extends modules/layout/layout.pug
 include modules/_page-list/_page-list
 block head
-  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
-  link(href="css/A_Register_Form_04.css" rel="stylesheet")
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+  link(href="css/A_Register_Form_05.css" rel="stylesheet")
 
 block content
-  .arf04
+  .arf05
     .inner
-      header
       form
         fieldset
           legend EVENT REGISTRATION FORM
-          .row.two-col
-            .label-field
-              label Name
-            .input-field
-              .input
-                input(type='text')
-                span First Name
-              .input
-                input(type='text')
-                span Last Name
-          .row
-            .label-field
-              label Company
-            .input-field
-              .input
-                input(type='text')
-          .row
-            .label-field
-              label Email
-            .input-field
-              .input
-                input(type='email', placeholder='example@email.com')
-          .row.two-col.phone
-            .label-field
-              label Phone
-            .input-field
-              .input
-                input(type='text')
-                span Area Code
-            .input-field
-              .input
-                input(type='text')
-                span Phone Number
-          .row
-            .label-field
-              label Subject
-            .input-field
-              .input
-                select
-                  option Choose option
-                  option 2
-          .row.single
-            label Are you an exesting customer?
-            .input-field
-              .inputs-radio
+          .inner-form
+            .row.two-col
+              .label-field
+                label Name
+              .input-field
+                .input
+                  input(type='text')
+                  span First Name
+                .input
+                  input(type='text')
+                  span Last Name
+            .row
+              .label-field
+                label Company
+              .input-field
+                .input
+                  input(type='text')
+            .row
+              .label-field
+                label Email
+              .input-field
+                .input
+                  input(type='email', placeholder='example@email.com')
+            .row.phone
+              .label-field
+                label Phone
+              .input-field
+                .input
+                  input(type='text')
+                  span Area Code
+                .input
+                  input(type='text')
+                  span Phone Number
+            .row
+              .label-field
+                label Subject
+              .input-field
+                .input-select
+                  select(data-trigger='', name='choices-single-defaul')
+                    option(placeholder='') Choose option
+                    option Subject A
+                    option Subject B
+                    option Subject C
+            .row.exesting
+              label Are you an exesting customer?
+              .input-radio-group
                 .input-radio
-                  input#yes(type='radio', name='customer', value='yes')
+                  input#yes(type='radio', name='customer', value='yes', checked)
                   label(for='yes') Yes
                 .input-radio
                   input#no(type='radio', name='customer', value='no')
                   label(for='no') No
-          .row
-            button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text REGISTER
+            .row
+              button(type='button').btn.btn-flat.waves-effect.waves-light.btn-small.white-text REGISTER
+  script(src='js/extention/choices.js')
   script.
+    const choices = new Choices('[data-trigger]', {
+      searchEnabled: false
+    });
     
