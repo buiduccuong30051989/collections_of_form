@@ -1,0 +1,235 @@
+@charset 'UTF-8';
+
+@import 'materialize-css/sass/components/normalize';
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+@import '../abstracts/functions';
+@import '../abstracts/placeholders';
+@import '../abstracts/animations';
+
+@import '../base/typography';
+@import '../base/images';
+@import '../base/global';
+@import '../base/reset';
+@import '../base/utility-classes';
+@import '../extention/choices';
+@import '../extention/flatpickr.min';
+
+$mainc: #00ad5f;
+
+* {
+  box-sizing: border-box;
+}
+
+.s126 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: url('../images/Searchs_126.png');
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+
+  form {
+    width: 100%;
+    max-width: 1226px;
+    padding: 70px 55px;
+    border-radius: 10px;
+    margin: 0;
+    background: linear-gradient(to bottom, rgba(71,169,255,0.9) 0%,rgba(201,73,254,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    .inner-form {
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 12px;
+          color: #fff;
+
+          &.fake {
+            visibility: hidden;
+          }
+        }
+
+        .input-field {
+          width: calc((100% - 60px)/4);
+          position: relative;
+
+          input {
+            height:60px;
+            width: 100%;
+            border: 0;
+            background: #fff;
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            color: #666;
+            border-radius: 10px;
+            padding: 10px 20px;
+  
+            @include placeholder {
+              color: #ccc;
+              font-size: 18px;
+            }
+  
+            &:hover,
+            &:focus {
+              box-shadow: none;
+              outline: 0;
+            }
+          }
+
+          input[type="date"]:before {
+            color: lightgrey;
+            content: attr(placeholder) !important;
+            margin-right: 0.5em;
+          }
+          input[type="date"]:focus:before,
+          input[type="date"]:valid:before {
+            display: none!important;
+          }
+
+          input[type="date"] {
+            -webkit-appearance: none;
+            padding-top: 14px;
+          }
+
+          input[type=date]:required:invalid::-webkit-datetime-edit {
+            color: transparent;
+        }
+
+          /* Include this to make it visible when input is clicked */
+          // input:focus::-webkit-datetime-edit{ color: #000; } 
+
+          &.has-icon {
+
+            input {
+              padding-right: 60px;
+              width: 100%;
+            }
+
+            .input-group {
+              position: relative;
+            }
+
+            .btn-plus {
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 60px;
+              height: 100%;
+              background: transparent;
+              border: 0;
+              cursor: pointer;
+              display:flex;
+              justify-content: center;
+              align-items: center;
+              
+              svg {
+                transition: all .2s ease-out, color .2s ease-out;
+                fill: #808080;
+              }
+
+              &:hover,
+              &:focus {
+                box-shadow: none;
+                outline: 0;
+
+                svg {
+                  fill: #666;
+                }
+              }
+            }
+            
+          }
+        }
+
+        &.first {
+          margin-bottom: 30px;
+          .input-field {
+            width: calc(50% - 10px);
+          }
+        }
+
+        .btn-search {
+          height: 60px;
+          width: 100%;
+          white-space: nowrap;
+          font-size: 18px;
+          color: #fff;
+          border: 0;
+          cursor: pointer;
+          position: relative;
+          z-index: 0;
+          background: $mainc;
+          transition: all .2s ease-out, color .2s ease-out;
+          font-weight: bold;
+          border-radius: 10px;
+          font-family: 'Poppins', sans-serif;
+
+          &:hover {
+            background: darken($mainc, 5%);
+          }
+
+          &:focus {
+            outline: 0;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0;
+
+    form {
+      padding: 60px 15px;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+
+      .inner-form {
+        width: 100%;
+
+        .row {
+          display: block;
+          margin: 0;
+
+          .input-field {
+            width: 100%;
+            margin-bottom: 20px;
+
+            input {
+              height: 46px;
+              font-size: 16px;
+            }
+          }
+
+          label {
+            font-weight: 600;
+          }
+
+          .btn-search {
+            font-weight: 600;
+            height: 46px;
+            font-size: 16px;
+          }
+
+          &.first {
+            .input-field {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

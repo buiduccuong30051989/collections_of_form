@@ -1,0 +1,37 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet")
+  link(href="css/Searchs_126.css" rel="stylesheet")
+
+block content
+  .s126
+    form
+      .inner-form
+        .row.first
+          .input-field
+            label(for='from') From
+            input#from(type='text', placeholder='City, Region or Airport')
+          .input-field
+            label(for='to') To
+            input#to(type='text', placeholder='City, Region or Airport')
+        .row
+          .input-field.has-icon
+            label(for='Passengers') Passengers
+            .input-group
+              input#Passengers(type='text', value='1 adult')
+              button.btn-plus
+                  svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24')
+                    path(d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z')
+          .input-field
+            label(for='depart') Depart
+            input.datepicker#depart(type='text', placeholder='29 Aug 2018', required)
+          .input-field
+            label(for='return') Return
+            input.datepicker#return(type='text', placeholder='30 Aug 2018', required)
+          .input-field
+            label.fake Submit
+            button(type='button').btn-search SEARCH
+  script(src='js/extention/flatpickr.js')
+  script.
+    flatpickr(".datepicker", {});

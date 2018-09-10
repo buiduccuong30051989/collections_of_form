@@ -16,50 +16,51 @@
 @import '../extention/choices';
 @import '../extention/flatpickr.min';
 
-$mainc: #6c7ae0;
+$mainc: #ff8300;
 
 * {
   box-sizing: border-box;
 }
 
-.s125 {
+.s124 {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Lato', sans-serif;
-  background: url('../images/Searchs_125.png');
-  background-size: cover;
-  background-position: center center;
+  background: #e2fbfd;
   padding: 15px;
 
   form {
     width: 100%;
     max-width: 900px;
     margin: 0;
-    background: rgba(0, 0, 0, .8);
+    background: #fff;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); 
-    padding: 60px 55px;
+    padding: 50px 55px;
 
     header {
-      font-family: 'Poppins', sans-serif;
       margin-bottom: 55px;
 
       .tab-form {
         a {
           font-size: 22px;
-          color: #808080;
+          font-weight: 400;
+          color: #555;
           display: inline-block;
           margin-right: 40px;
           text-decoration: none;
           transition: all .2s ease-out, color .2s ease-out;
+          opacity: .6;
 
           &.active {
-            color: #fff;
+            color: $mainc;
+            opacity: 1;
           }
 
           &:hover {
-            color: #fff;
+            color: $mainc;
+            opacity: 1;
           }
         }
       }
@@ -85,20 +86,22 @@ $mainc: #6c7ae0;
             width: 100%;
             font-size: 18px;
             color: #666;
-            border-radius: 10px;
+            border-radius: 0;
             padding: 11px 20px 10px 124px;
             font-family: 'Lato', sans-serif;
+            border-bottom: 1px solid #ccc;
+            transition: all .2s ease-out, color .2s ease-out;
   
             @include placeholder {
               color: #ccc;
               font-size: 18px;
-              text-transform: uppercase;
             }
   
             &:hover,
             &:focus {
               box-shadow: none;
               outline: 0;
+              border-bottom: 1px solid #333;
             }
           }
 
@@ -112,7 +115,6 @@ $mainc: #6c7ae0;
             display: flex;
             height: 100%;
             align-items: center;
-            justify-content: center;
             z-index: 1;
           }
 
@@ -120,29 +122,11 @@ $mainc: #6c7ae0;
             width: 100%;
 
             input {
-              height: 80px;
-              padding: 11px 80px 10px 100px;
+              padding: 11px 20px 10px 100px;
             }
 
             label {
               width: 100px;
-            }
-
-            .icon-wrap {
-              width: 80px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              height: 100%;
-              position: absolute;
-              top: 0;
-              right: 0;
-
-              svg {
-                fill: #ccc;
-                width: 40px;
-                height: 40px;
-              }
             }
           }
 
@@ -150,12 +134,13 @@ $mainc: #6c7ae0;
             background: #fff;
             border-radius: 0;
             border: 0;
+            border-bottom: 1px solid #ccc;
             height: 60px;
             color: #666;
             display: flex;
             align-items: center;
             padding: 11px 20px 10px 124px;
-            border-radius: 10px;
+            border-radius: 0;
 
             .choices__list.choices__list--single {
               display: flex;
@@ -189,11 +174,11 @@ $mainc: #6c7ae0;
           .choices__list.choices__list--dropdown {
             border: 0;
             background: #fff;
-            padding: 20px 30px;
-            margin-top: 2px;
+            padding: 15px 30px;
+            margin-top: 0;
             border-radius: 4px;
             box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-
+            
             .choices__item--selectable {
               padding-right: 0;
             }
@@ -207,6 +192,7 @@ $mainc: #6c7ae0;
           .choices__list--dropdown .choices__item {
             color: #555;
             min-height: 24px;
+            font-size: 16px;
           }
         }
 
@@ -234,18 +220,21 @@ $mainc: #6c7ae0;
             box-shadow: none;
           }
         }
+
+        &.single {
+          .input-field {
+            width: 100%;
+          }
+        }
       }
     }
   }
 
   @media screen and (max-width: 767px) {
-    padding: 0;
-
     form {
       padding: 0;
       width: 100%;
       padding: 15px;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -314,7 +303,6 @@ $mainc: #6c7ae0;
           }
 
           .btn-search {
-            font-weight: 600;
             height: 50px;
             font-size: 16px;
           }
