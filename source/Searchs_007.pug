@@ -13,7 +13,7 @@ block content
             .icon-wrap
               svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='20', height='20', viewBox='0 0 20 20')
                 path(d='M18.869 19.162l-5.943-6.484c1.339-1.401 2.075-3.233 2.075-5.178 0-2.003-0.78-3.887-2.197-5.303s-3.3-2.197-5.303-2.197-3.887 0.78-5.303 2.197-2.197 3.3-2.197 5.303 0.78 3.887 2.197 5.303 3.3 2.197 5.303 2.197c1.726 0 3.362-0.579 4.688-1.645l5.943 6.483c0.099 0.108 0.233 0.162 0.369 0.162 0.121 0 0.242-0.043 0.338-0.131 0.204-0.187 0.217-0.503 0.031-0.706zM1 7.5c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5-6.5-2.916-6.5-6.5z')
-            input#search(type='text', placeholder='Search...', value='Colorlib template')
+            input#search(type='text', placeholder='Search...')
             .result-count
               span 108 
               | results
@@ -24,54 +24,78 @@ block content
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
                   option(placeholder='', value='') CHOOSE ACCESSORIES
-                  option(selected) ACCESSORIES
+                  option ACCESSORIES
                   option SUBJECT B
                   option SUBJECT C
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='') CHOOSE COLOR
-                  option(selected) GREEN
+                  option(placeholder='', value='') CHOOSE COLOR
+                  option GREEN
                   option SUBJECT B
                   option SUBJECT C
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='') CHOOSE SIZE
-                  option(selected) SIZE
+                  option(placeholder='', value='') CHOOSE SIZE
+                  option SIZE
                   option SUBJECT B
                   option SUBJECT C
-          .row
+          .row.second
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='') CHOOSE SALE
-                  option(selected) SALE
-                  option SUBJECT B
-                  option SUBJECT C
-            .input-field
-              .input-select
-                select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='') CHOOSE TIME
-                  option(selected) THIS WEEK
+                  option(placeholder='', value='') CHOOSE SALE
+                  option SALE
                   option SUBJECT B
                   option SUBJECT C
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='') CHOOSE TYPE
-                  option(selected) TYPE
+                  option(placeholder='', value='') CHOOSE TIME
+                  option THIS WEEK
                   option SUBJECT B
-                  option SUBJECT C        
+                  option SUBJECT C
+            .input-field
+              .input-select
+                select(data-trigger='', name='choices-single-defaul')
+                  option(placeholder='', value='') CHOOSE TYPE
+                  option TYPE
+                  option SUBJECT B
+                  option SUBJECT C
+          .row.third
+            .input-field
+              button.btn-search Search
+              button#delete.btn-delete Delete
   script(src='js/extention/choices.js')
   script.
-    const choices = new Choices('[data-trigger]', {
+    const customSelects = document.querySelectorAll("select");
+    const deleteBtn = document.getElementById('delete')
+    const choices = new Choices('select', {
       searchEnabled: false,
       removeItemButton: true,
+      itemSelectText: '',
     });
-    choices.passedElement.addEventListener('addItem', function(event) {
-      // do something creative here...
-      if(!event.detail.value) {
-      }
-    }, false);
+    
+    for(let i = 0; i < customSelects.length; i++) {
+      customSelects[i].addEventListener('addItem', function(event) {
+        if(event.detail.value) {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('valid')
+          parent.classList.remove('invalid')
+        } else {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('invalid')
+          parent.classList.remove('valid')
+        }
+      }, false);
+    }
 
+    
+    deleteBtn.addEventListener("click", function(e){
+      e.preventDefault()
+      const deleteAll = document.querySelectorAll('.choices__button')
+      for(let i = 0; i < deleteAll.length; i++) {
+        deleteAll[i].click();
+      }
+    });

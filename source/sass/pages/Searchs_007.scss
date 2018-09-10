@@ -33,12 +33,10 @@ $mainc: #57b846;
   form {
     width: 100%;
     max-width: 790px;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-    border-radius: 3px;
+    margin: 0;
 
     .inner-form {
       width: 100%;
-      margin-bottom: 17px;
 
       .input-field {
         position: relative;
@@ -69,30 +67,47 @@ $mainc: #57b846;
         }
 
         .btn-search {
-          width: 70px;
-          display: flex;
-          align-items: center;
-          position: absolute;
-          left: 0;
-          height: 100%;
-          background: transparent;
+          min-width: 100px;
+          height: 40px;;
+          padding: 0 15px;
+          background: $mainc;
+          white-space: nowrap;
+          border-radius: 3px;
+          font-size: 14px;
+          color: #fff;
+          transition: all .2s ease-out, color .2s ease-out;
           border: 0;
-          padding: 0;
           cursor: pointer;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          font-weight: bold;
 
-          &:hover,
-          &:focus {
-            outline: 0;
-            box-shadow: none;
+          &:hover {
+            background: darken($mainc, 5%);
+          }
+        }
+
+        .btn-delete {
+          min-width: 100px;
+          height: 40px;;
+          padding: 0 15px;
+          background: transparent;
+          white-space: nowrap;
+          border-radius: 3px;
+          font-size: 14px;
+          color: #555;
+          transition: all .2s ease-out, color .2s ease-out;
+          border: 0;
+          cursor: pointer;
+          font-weight: bold;
+
+          &:hover {
+            color: #000;
           }
         }
       }
 
       .basic-search {
         margin-bottom: 5px;
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); 
 
         .input-field {
           width: 100%;
@@ -142,19 +157,28 @@ $mainc: #57b846;
         background: #fff;
         padding: 40px;
         border-radius: 3px;
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); 
 
         .desc {
           font-size: 15px;
           color: #999;
           display: block;
-          margin-bottom: 25px;
+          margin-bottom: 26px;
         }
 
         .row {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
+
+          &.second {
+            margin-bottom: 46px;
+          }
+
+          &.third {
+            margin-bottom: 0;
+          }
         }
 
         .input-field {
@@ -202,15 +226,6 @@ $mainc: #57b846;
           }
         }
 
-        .choices[data-type*="select-one"]:after {
-          right: 0;
-          border-color: #e5e5e5 transparent transparent transparent
-        }
-
-        .choices[data-type*="select-one"] .choices__button {
-          background: red;
-        }
-
         .choices__list.choices__list--dropdown {
           border: 0;
           background: #fff;
@@ -233,6 +248,57 @@ $mainc: #57b846;
           color: #555;
           min-height: 24px;
         }
+
+        .choices[data-type*="select-one"] {
+          &:after {
+            border: 0;
+            width: 32px;
+            height: 32px;
+            margin: 0;
+            transform: none;
+            opacity: 1;
+            right: 0;
+            top: 10px;
+            background-size: 18px 18px;
+            background-position: right center;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+          }
+  
+          .choices__button {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%2357b846' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3e%3c/svg%3e");
+            background-size: 16px 16px;
+            background-position: right center;
+            width: 32px;
+            height: 32px;
+            opacity: 1;
+            display: none;
+            top: 10px;
+            right: 0;
+            transform: none;
+            margin: 0;
+          }
+
+          &.valid {
+             .choices__button {
+              display: block;
+
+              &:hover {
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ccc' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z'/%3e%3c/svg%3e");
+              }
+            }
+
+            &:after {
+              display: none;
+            }
+          }
+
+          &.is-open {
+            &:after {
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
+            }
+          }
+        }
       }
     }
   }
@@ -240,20 +306,44 @@ $mainc: #57b846;
   @media screen and (max-width: 767px) {
     form {
       .inner-form {
+
+        .basic-search {
+          .input-field {
+            input {
+              padding: 10px 110px 10px 40px;
+            }
+
+            .icon-wrap {
+              width: 40px;
+              justify-content: center;
+              
+              svg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+        }
+
+        .advance-search { 
+          .row {
+            display: block;
+          }
+
+          .input-field {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+
         .input-field {
-          margin-bottom: 20px;
-          height: 50px;
+          
 
           input {
-            padding-left: 55px;
-            font-size: 16px;
           }
 
           .btn-search {
-            svg {
-              width: 26px;
-              height: 26px;
-            }
+            
           }
         }
       }
