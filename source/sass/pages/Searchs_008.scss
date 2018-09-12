@@ -15,18 +15,19 @@
 @import '../base/utility-classes';
 @import '../extention/choices';
 
-$mainc: #57b846;
+$mainc: #e45c27;
 
 * {
   box-sizing: border-box;
 }
 
-.s007 {
+.s008 {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #00b5e9;
+  background: url('../images/Searchs_008.png');
+  background-size: cover;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
 
@@ -93,14 +94,14 @@ $mainc: #57b846;
           white-space: nowrap;
           border-radius: 3px;
           font-size: 14px;
-          color: #555;
+          color: #fff;
           transition: all .2s ease-out, color .2s ease-out;
           border: 0;
           cursor: pointer;
           font-weight: bold;
 
           &:hover {
-            color: #000;
+            color: #fff;
           }
         }
       }
@@ -111,16 +112,16 @@ $mainc: #57b846;
 
         .input-field {
           width: 100%;
+          
           input {
-            padding: 10px 110px 10px 70px;
+            padding: 10px 80px 10px 40px;
           }
           
           .icon-wrap {
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
             width: 60px;
             height: 100%;
@@ -131,30 +132,11 @@ $mainc: #57b846;
               fill: #ccc;
             }
           }
-
-          .result-count {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            width: 110px;
-            top: 0;
-            right: 0;
-            position: absolute;
-            font-weight: bold;
-            color: #555;
-            height: 100%;
-            font-size: 14px;
-
-            span {
-              color: $mainc;
-              padding-right: 5px;
-            }
-          }
         }
       }
 
       .advance-search {
-        background: #fff;
+        background: #000;
         padding: 40px;
         border-radius: 3px;
         box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); 
@@ -178,6 +160,28 @@ $mainc: #57b846;
 
           &.third {
             margin-bottom: 0;
+
+            .input-field {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .result-count {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 110px;
+                font-weight: bold;
+                color: #fff;
+                font-size: 14px;
+    
+                span {
+                  color: $mainc;
+                  padding-right: 5px;
+                }
+              }
+            }
           }
         }
 
@@ -215,20 +219,20 @@ $mainc: #57b846;
             align-items: center;
             height: 100%;
             opacity: 1;
-            color: #888;
+            color: #666;
           }
 
           .choices__list--single .choices__item {
             display: flex;
             align-items: center;
             height: 100%;
-            color: #555;
+            color: #fff;
           }
         }
 
         .choices__list.choices__list--dropdown {
           border: 0;
-          background: #fff;
+          background: #000;
           padding: 20px 30px;
           margin-top: 2px;
           border-radius: 4px;
@@ -240,7 +244,7 @@ $mainc: #57b846;
         }
 
         .choices__list--dropdown .choices__item--selectable.is-highlighted {
-          background: #fff;
+          background: transparent;
           color: $mainc;
         }
 
@@ -266,7 +270,7 @@ $mainc: #57b846;
           }
   
           .choices__button {
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%2357b846' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23e45c27' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3e%3c/svg%3e");
             background-size: 16px 16px;
             background-position: right center;
             width: 32px;
@@ -310,7 +314,7 @@ $mainc: #57b846;
         .basic-search {
           .input-field {
             input {
-              padding: 10px 110px 10px 60px;
+              padding: 10px 60px 10px 40px;
             }
 
             .icon-wrap {

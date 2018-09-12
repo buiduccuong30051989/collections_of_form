@@ -21,6 +21,11 @@ $mainc: #4272d7;
   box-sizing: border-box;
 }
 
+input,
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
 .s131 {
   min-height: 100vh;
   display: flex;
@@ -58,7 +63,7 @@ $mainc: #4272d7;
 
           @include placeholder {
             color: #9a9a9a;
-            font-size: 16px;
+            font-size: 20px;
           }
 
           &:hover,
@@ -87,7 +92,7 @@ $mainc: #4272d7;
             color: #333;
             display: flex;
             align-items: center;
-            padding: 10px 30px;
+            padding: 0 30px;
 
             .choices__list.choices__list--single {
               display: flex;
@@ -101,19 +106,16 @@ $mainc: #4272d7;
               align-items: center;
               height: 100%;
               opacity: 1;
-              color: #9a9a9a;
+              color: #333;
+              font-size: 20px;
             }
 
             .choices__list--single .choices__item {
               display: flex;
               align-items: center;
               height: 100%;
+              font-size: 20px;
             }
-          }
-
-          .choices[data-type*="select-one"]:after {
-            right: 30px;
-            border-color: #e5e5e5 transparent transparent transparent
           }
 
           .choices__list.choices__list--dropdown {
@@ -163,6 +165,33 @@ $mainc: #4272d7;
           }
         }
       }
+
+      .choices[data-type*="select-one"] {
+        .choices__inner {
+          padding-bottom: 0;
+        }
+  
+        &:after {
+          border: 0;
+          width: 18px;
+          height: 18px;
+          margin: 0;
+          transform: translateY(-50%);
+          opacity: 1;
+          right: 15px;
+          top: 50%;
+          background-size: 18px 18px;
+          background-position: right center;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3e%3c/svg%3e");
+          background-repeat: no-repeat;
+        }
+  
+        &.is-open {
+          &:after {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
+          }
+        }
+      }
     }
   }
 
@@ -170,7 +199,7 @@ $mainc: #4272d7;
     form {
       .inner-form {
         .input-field {
-          height: 50px;
+          height: 60px;
         }
       }
     }
@@ -194,11 +223,6 @@ $mainc: #4272d7;
 
             .choices__inner {
               padding: 10px 15px;
-            }
-
-            .choices[data-type*="select-one"]:after {
-              right: 11.5px;
-              border-color: #e5e5e5 transparent transparent transparent
             }
           }
 

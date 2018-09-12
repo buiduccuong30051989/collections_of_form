@@ -1,13 +1,5 @@
 @charset 'UTF-8';
-@import 'materialize-css/sass/components/color-variables';
-@import 'materialize-css/sass/components/variables';
-@import 'materialize-css/sass/components/normalize';
-@import 'materialize-css/sass/components/global';
-@import 'materialize-css/sass/components/forms/forms';
-@import 'materialize-css/sass/components/waves';
-@import 'materialize-css/sass/components/dropdown';
-@import 'materialize-css/sass/components/datepicker';
-@import 'materialize-css/sass/components/modal';
+@import 'materialize-css/sass/materialize';
 
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
@@ -63,6 +55,8 @@ $mainc: #57b846;
       }
 
       .row {
+        margin-bottom: 30px;
+
         &.two-line {
           display: flex;
           justify-content: space-between;
@@ -75,7 +69,7 @@ $mainc: #57b846;
       }
 
       .input-field {
-        margin-bottom: 30px;
+        margin-bottom: 0;
         margin-top: 0;
         width: 100%;
 
@@ -123,7 +117,7 @@ $mainc: #57b846;
         }
       }
 
-      .btn {
+      .btn-search {
         background: $mainc;
         min-width: 130px;
         height: 40px;
@@ -199,6 +193,30 @@ $mainc: #57b846;
     line-height: 40px;
   }
 
+  .month-next {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ccc' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3e%3c/svg%3e");
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    svg {
+      display: none;
+    }
+  }
+
+  .month-prev {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ccc' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3e%3c/svg%3e");
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    svg {
+      display: none;
+    }
+  }
+
+  .datepicker-day-button {
+    font-weight: 300;
+  }
+
   @media screen and (max-width: 1280px) {
     padding: 15px;
 
@@ -208,14 +226,6 @@ $mainc: #57b846;
 
         legend {
           margin-bottom: 40px;
-        }
-
-        .input-field {
-          &.date {
-            svg {
-              bottom: 10px;
-            }
-          }
         }
       }
     }

@@ -1,0 +1,39 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
+  link(href="css/Searchs_121.css" rel="stylesheet")
+
+block content
+  .s121
+    form
+      .inner-form
+        .input-wrap.first
+          .input-field.first
+            label GOING TO
+            input(type='text', placeholder='Destination, hotel name')
+        .input-wrap.second
+          .input-field
+            label CHECK-IN
+            input.datepicker(type='text', placeholder='mm/dd/yy')
+        .input-wrap.third
+          .input-field
+            label CHECK-OUT
+            input.datepicker(type='text', placeholder='mm/dd/yy')
+        .input-wrap.fouth
+          .input-field
+            label GUESTS
+            input(type='text', placeholder='2 Guest')
+            .group-btn
+              .control.up
+                svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24')
+                  path(d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z')
+              .control.down
+                svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24')
+                  path(d='M19 13H5v-2h14v2z')
+        button.btn-search(type='button') Search
+  script(src='js/extention/flatpickr.js')
+  script.
+    flatpickr(".datepicker", {
+      dateFormat: "m/d/y"
+    });

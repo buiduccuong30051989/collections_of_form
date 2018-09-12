@@ -8,10 +8,10 @@ block content
   .s125
     form
       header
-        .tab-form
-          a.active(href="#") HOTELS
-          a(href="#") CAR
-          a(href="#") FLIGHT
+        .tab-form.travel-type-wrap
+          a.item.active(href="#") HOTELS
+          a.item(href="#") CAR
+          a.item(href="#") FLIGHT
       .inner-form
         #tab-hotel
           .row
@@ -47,3 +47,13 @@ block content
       searchEnabled: false,
       itemSelectText: '',
     });
+
+    var btnTypes = document.querySelectorAll('.travel-type-wrap .item')
+    for(let i = 0; i < btnTypes.length; i++) {
+      btnTypes[i].addEventListener('click', function(){
+        for(let i = 0; i < btnTypes.length; i++) {
+          btnTypes[i].classList.remove('active')
+        }
+        btnTypes[i].classList.add('active')
+      })
+    }

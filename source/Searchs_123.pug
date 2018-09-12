@@ -1,0 +1,75 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700" rel="stylesheet")
+  link(href="css/Searchs_123.css" rel="stylesheet")
+
+block content
+  .s123
+    form
+      .inner-form
+        header
+          .travel-type-wrap
+            .item.active
+              span HOTEL
+            .item
+              span CAR
+            .item
+              span FLIGHT
+        .main-form#main-form
+          .row
+            .input-wrap
+              .input-field
+                label WHERE
+                input(type='text', placeholder='City, region or specific hotel')
+          .row.second
+            .input-wrap
+              .input-field
+                label CHECK-IN
+                input.datepicker(type='text', placeholder='mm/dd/yy')
+            .input-wrap
+              .input-field
+                label CHECK-OUT
+                input.datepicker(type='text', placeholder='mm/dd/yy')
+          .row.third
+            .input-wrap
+              .input-field
+                label TRAVELERS
+                .input-select
+                  select(data-trigger='', name='choices-single-defaul')
+                    option(placeholder='') 1 adult,  0 Children,  2 Room
+                    option 2 adults
+                    option 3 adults
+                    option 4 adults
+          .row.fouth
+            .input-checkbox-group
+              .input-checkbox
+                input#yes(type='checkbox', name='customer', value='yes', checked)
+                label(for='yes') ADD A FLIGHT
+              .input-checkbox
+                input#no(type='checkbox', name='customer', value='no')
+                label(for='no') ADD A CAR
+          .row.last
+            button.btn-search(type='button') SEARCH
+  script(src='js/extention/choices.js')
+  script.
+    const choices = new Choices('[data-trigger]', {
+      searchEnabled: false,
+      itemSelectText: '',
+    });
+  script(src='js/extention/flatpickr.js')
+  script.
+    flatpickr(".datepicker", {
+      dateFormat: "m/d/y"
+    });
+
+    var btnTypes = document.querySelectorAll('.travel-type-wrap .item')
+    for(let i = 0; i < btnTypes.length; i++) {
+      btnTypes[i].addEventListener('click', function(){
+        for(let i = 0; i < btnTypes.length; i++) {
+          btnTypes[i].classList.remove('active')
+        }
+        btnTypes[i].classList.add('active')
+      })
+    }
+  

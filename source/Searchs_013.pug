@@ -1,0 +1,34 @@
+extends modules/layout/layout.pug
+include modules/_page-list/_page-list
+block head
+  link(href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet")
+  link(href="css/Searchs_013.css" rel="stylesheet")
+
+block content
+  .s013
+    form
+      fieldset
+        legend QUICK FIND YOUR CITY
+      .inner-form
+        .left
+          .input-wrap.first
+            .input-field.first
+              label WHAT
+              input(type='text', placeholder='ex: food, service, bar, hotel')
+          .input-wrap.second
+            .input-field.second
+              label WHERE
+              .input-select
+                select(data-trigger='', name='choices-single-defaul')
+                  option(placeholder='') 1 adult
+                  option 2 adults
+                  option 3 adults
+                  option 4 adults
+        button.btn-search(type='button') SEARCH
+  script(src='js/extention/choices.js')
+  script.
+    const choices = new Choices('[data-trigger]', {
+      searchEnabled: false,
+      itemSelectText: '',
+    });
+  

@@ -1,0 +1,197 @@
+@charset 'UTF-8';
+
+@import 'materialize-css/sass/components/normalize';
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+@import '../abstracts/functions';
+@import '../abstracts/placeholders';
+@import '../abstracts/animations';
+
+@import '../base/typography';
+@import '../base/images';
+@import '../base/global';
+@import '../base/reset';
+@import '../base/utility-classes';
+@import '../extention/choices';
+@import '../extention/flatpickr.min';
+
+$mainc: #ffe151;
+
+* {
+  box-sizing: border-box;
+}
+
+.s121 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffece0;
+  padding: 15px;
+  font-family: 'Roboto', sans-serif;
+
+  form {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0;
+
+    .inner-form {
+      display: flex;
+      justify-content: space-between;
+
+      .input-wrap {
+        background: #fff;
+        height: 80px;
+        position: relative;
+        padding: 10px 10px 10px 25px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+        
+        .input-field {
+          label {
+            font-size: 12px;
+            font-weight: 500;
+            display: block;
+            color: #999;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            padding-top: 10px;
+          }
+
+          input {
+            font-size: 16px;
+            color: #333;
+            background: transparent;
+            width: 100%;
+            border: 0;
+            font-family: 'Roboto', sans-serif;
+            padding: 12px 0 6px 0;
+
+            @include placeholder {
+              color: #333;
+              font-size: 18px;
+              font-weight: 400;
+            }
+
+            &.hover,
+            &:focus {
+              box-shadow: none;
+              outline: 0;
+            }
+          }
+        }
+
+        &.first {
+          flex-grow: 1;
+          margin-right: 10px;
+        }
+
+        &.second {
+          max-width: 190px;
+          min-width: 18.34%;
+          margin-right: 10px;
+        }
+
+        &.third {
+          max-width: 190px;
+          min-width: 18.34%;
+          margin-right: 10px;
+        }
+
+        &.fouth {
+          max-width: 190px;
+          min-width: 18.34%;
+          margin-right: 10px;
+          
+          .input-field {
+            position: relative;
+            padding-right: 30px;
+          }
+
+          .group-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            
+            .control {
+              width: 30px;
+              height: 30px;
+              background: #f2f2f2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              transition: all .3s;
+
+              svg {
+                fill: #b2b2b2;
+                width: 14px;
+                height: 14px;
+              }
+              
+              &:hover {
+                background: darken($color: #f2f2f2, $amount: 10%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn-search {
+      min-width: 120px;
+      height: 80px;;
+      padding: 0 15px;
+      background: $mainc;
+      white-space: nowrap;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #333;
+      transition: all .2s ease-out, color .2s ease-out;
+      border: 0;
+      cursor: pointer;
+      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        background: darken($mainc, 10%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    form {
+      .inner-form {
+        flex-wrap: wrap;
+
+        .input-wrap {
+          margin-bottom: 20px;
+          margin-right: 0;
+        
+          &.first {
+            width: 100%;
+            margin-right: 0;
+          }
+
+          &.second,
+          &.third {
+            width: calc(50% - 10px);
+            max-width: none;
+            margin-right: 0;
+          }
+
+          &.fouth {
+            width: 100%;
+            max-width: none;
+          }
+        }
+
+        .btn-search {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

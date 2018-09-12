@@ -1,7 +1,7 @@
 extends modules/layout/layout.pug
 include modules/_page-list/_page-list
 block head
-  link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet")
   link(href="css/Searchs_132.css" rel="stylesheet")
 
 block content
@@ -11,7 +11,7 @@ block content
         .input-field.first-wrap
           .input-select
             select(data-trigger='', name='choices-single-defaul')
-              option(placeholder='') Choose option
+              option(placeholder='') Category
               option Subject A
               option Subject B
               option Subject C
@@ -22,5 +22,6 @@ block content
   script(src='js/extention/choices.js')
   script.
     const choices = new Choices('[data-trigger]', {
-      searchEnabled: false
+      searchEnabled: false,
+      itemSelectText: '',
     });

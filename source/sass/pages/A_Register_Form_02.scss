@@ -1,14 +1,5 @@
 @charset 'UTF-8';
-@import 'materialize-css/sass/components/color-variables';
-@import 'materialize-css/sass/components/variables';
-@import 'materialize-css/sass/components/normalize';
-@import 'materialize-css/sass/components/global';
-@import 'materialize-css/sass/components/forms/forms';
-@import 'materialize-css/sass/components/buttons';
-@import 'materialize-css/sass/components/waves';
-@import 'materialize-css/sass/components/dropdown';
-@import 'materialize-css/sass/components/datepicker';
-@import 'materialize-css/sass/components/modal';
+@import 'materialize-css/sass/materialize';
 
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
@@ -33,6 +24,7 @@ $mainc: #57b846;
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+  padding: 15px;
 
   .inner {
     width: 100%;
@@ -59,11 +51,14 @@ $mainc: #57b846;
         font-size: 30px;
         line-height: 1;
         color: #333333;
-        font-weight: 400;
+        font-weight: bold;
         margin-bottom: 54px;
+        text-transform: uppercase;
       }
 
       .row {
+        margin-bottom: 40px;
+
         &.two-line {
           display: flex;
           justify-content: space-between;
@@ -73,16 +68,22 @@ $mainc: #57b846;
             max-width: calc(50% - 30px);
           }
         }
+
+        &:after {
+          display: none;
+        }
       }
 
       .input-field {
         margin-bottom: 30px;
         margin-top: 0;
         width: 100%;
+        height: 32px;
+        margin-bottom: 0;
 
         input {
           font-size: 14px;
-          height: 2rem;
+          height: 32px;
           border-bottom: 1px solid #ccc;
           cursor: pointer;
 
@@ -94,9 +95,10 @@ $mainc: #57b846;
         > label {
           font-size: 14px;
           line-height: 1;
-          color: #555;
+          color: #808080;
           left: 0;
           transform: translateY(4px);
+          font-weight: bold;
 
           &:not(.label-icon).active {
             transform: translateY(-12px) scale(0.8);
@@ -108,8 +110,8 @@ $mainc: #57b846;
           svg {
             position: absolute;
             width: 16px;
-            bottom: 14px;
-            right: 5px;
+            bottom: 6px;
+            right: 0;
             fill: #ccc;
           }
         }
@@ -130,6 +132,10 @@ $mainc: #57b846;
         &:hover {
           background: darken($mainc, 5%);
         }
+
+        &.btn-search {
+          text-transform: none;
+        }
       }
     }
   }
@@ -144,17 +150,17 @@ $mainc: #57b846;
 
     .fake-label {
       display: block;
-      color: #9e9e9e;
+      color: #808080;
       position: absolute;
       top: 0;
       font-size: 14px;
       line-height: 1;
-      color: #555;
       left: 0;
       transition: transform .2s ease-out, color .2s ease-out;
       transform-origin: 0% 100%;
       text-align: initial;
       transform: translateY(12px);
+      font-weight: bold;
     }
   
     .select-dropdown[data-disabled="true"] {
@@ -183,81 +189,73 @@ $mainc: #57b846;
     }
   }
 
-  // @media screen and (max-width: 1280px) {
-  //   .inner {
-  //     header {
-  //       min-height: 160px;
-  //     }
+  .month-next {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ccc' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3e%3c/svg%3e");
+    background-position: center center;
+    background-repeat: no-repeat;
 
-  //     form {
-  //       padding: 30px;
+    svg {
+      display: none;
+    }
+  }
 
-  //       legend {
-  //         margin-bottom: 40px;
-  //       }
-  //     }
-  //   }
-  // }
+  .month-prev {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ccc' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3e%3c/svg%3e");
+    background-position: center center;
+    background-repeat: no-repeat;
 
-  // @media screen and (max-width: 767px) {
-  //   padding: 15px;
+    svg {
+      display: none;
+    }
+  }
 
-  //   .inner {
-  //     header {
-  //       min-height: 160px;
-  //     }
+  @media screen and (max-width: 767px) {
+    padding: 15px;
 
-  //     form {
-  //       padding: 30px;
+    .inner {
+      display: flex;
+      flex-direction: column;
+      height: auto;
 
-  //       legend {
-  //         margin-bottom: 40px;
-  //       }
+      header {
+        min-height: 160px;
+      }
 
-  //       .row {
-  //         &.two-line {
-  //           display: flex;
-  //           justify-content: space-between;
+      form {
+        padding: 30px;
+
+        legend {
+          margin-bottom: 40px;
+        }
+
+        .row {
+          &.two-line {
+            display: flex;
+            justify-content: space-between;
     
-  //           .input-field {
-  //             width: 100%;
-  //             max-width: calc(50% - 10px);
-  //           }
-  //         }
-  //       }
+            .input-field {
+              width: 100%;
+              max-width: calc(50% - 10px);
+            }
+          }
+        }
 
-  //       .input-field {
-  //         input {
-  //           &.datepicker {
-  //             padding-right: 0;
-  //           }
-  //         }
+        .input-field {
+          input {
+            &.datepicker {
+              padding-right: 0;
+            }
+          }
   
-  //         &.date {
-  //           svg {
-  //             display: none;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  // @media screen and (max-width: 767px) {
-  //   padding: 15px;
-
-  //   .inner {
-  //     header {
-  //       min-height: 90px;
-  //     }
-
-  //     form {
-  //       legend {
-  //         margin-bottom: 30px;
-  //       }
-  //     }
-  //   }
-  // }
+          &.date {
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 

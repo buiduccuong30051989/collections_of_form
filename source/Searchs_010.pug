@@ -1,82 +1,80 @@
 extends modules/layout/layout.pug
 include modules/_page-list/_page-list
 block head
-  link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
-  link(href="css/Searchs_007.css" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet")
+  link(href="css/Searchs_010.css" rel="stylesheet")
 
 block content
-  .s007
+  .s010
     form
       .inner-form
         .basic-search
           .input-field
+            input#search(type='text', placeholder='Type Keywords')
             .icon-wrap
-              svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='20', height='20', viewBox='0 0 20 20')
-                path(d='M18.869 19.162l-5.943-6.484c1.339-1.401 2.075-3.233 2.075-5.178 0-2.003-0.78-3.887-2.197-5.303s-3.3-2.197-5.303-2.197-3.887 0.78-5.303 2.197-2.197 3.3-2.197 5.303 0.78 3.887 2.197 5.303 3.3 2.197 5.303 2.197c1.726 0 3.362-0.579 4.688-1.645l5.943 6.483c0.099 0.108 0.233 0.162 0.369 0.162 0.121 0 0.242-0.043 0.338-0.131 0.204-0.187 0.217-0.503 0.031-0.706zM1 7.5c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5-6.5-2.916-6.5-6.5z')
-            input#search(type='text', placeholder='Search...')
-            .result-count
-              span 108 
-              | results
+              svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24')
+                path(d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z')
         .advance-search
-          span.desc Advanced Search
+          span.desc ADVANCED SEARCH
           .row
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') ACCESSORIES
-                  option ACCESSORIES
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Accessories
+                  option Subject b
+                  option Subject c
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') COLOR
-                  option GREEN
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Color
+                  option Subject b
+                  option Subject c
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') SIZE
-                  option SIZE
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Size
+                  option Subject b
+                  option Subject c
           .row.second
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') SALE
-                  option SALE
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Sale
+                  option Subject b
+                  option Subject c
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') TIME
-                  option THIS WEEK
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Time
+                  option Last time
+                  option Today
+                  option This week
+                  option This month
+                  option This year
             .input-field
               .input-select
                 select(data-trigger='', name='choices-single-defaul')
-                  option(placeholder='', value='') TYPE
-                  option TYPE
-                  option SUBJECT B
-                  option SUBJECT C
+                  option(placeholder='', value='') Type
+                  option Subject b
+                  option Subject c
           .row.third
             .input-field
-              button.btn-search Search
-              button#delete.btn-delete Delete
+              .result-count
+                span 108 
+                | results
+              .group-btn
+                button#delete.btn-delete RESET
+                button.btn-search SEARCH
   script(src='js/extention/choices.js')
   script.
     const customSelects = document.querySelectorAll("select");
     const deleteBtn = document.getElementById('delete')
     const choices = new Choices('select', {
       searchEnabled: false,
-      removeItemButton: true,
       itemSelectText: '',
+      removeItemButton: true,
     });
-    
+
     for(let i = 0; i < customSelects.length; i++) {
       customSelects[i].addEventListener('addItem', function(event) {
         if(event.detail.value) {
@@ -90,7 +88,6 @@ block content
         }
       }, false);
     }
-
     
     deleteBtn.addEventListener("click", function(e){
       e.preventDefault()
